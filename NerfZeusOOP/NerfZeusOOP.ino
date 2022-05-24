@@ -1,5 +1,5 @@
 #include <LCD.h>
-#include "LEDStrip.h"
+#include <LEDStrip.h>
 
 #define NUM_LEDS 16
 #define LED_DATA_PIN 11
@@ -13,7 +13,7 @@
 
 class Blaster {
   private:
-    void updateDisplay(byte ammo) {
+    void updateDisplay(byte ammo) {//updates LCD
       if (ammo < 10) {
         lcd.setCursor(0, 1);
         lcd.print(" ");
@@ -27,7 +27,7 @@ class Blaster {
       ammoCount = capacity;
       updateDisplay(capacity);
       ledStrip.updateStripLength(capacity);
-      delay(1000);
+      delay(1000);//reload delay
     }
     byte ammoCount;
     byte capacity;
@@ -38,7 +38,7 @@ class Blaster {
     this->capacity = capacity;
     this->ammoCount = capacity;
   }
-  void fire() {
+  void fire() {//updates all objects that a ball has been fired
     if (ammoCount == 0) {
       reload();
     } else {
@@ -46,7 +46,7 @@ class Blaster {
       ledStrip.updateStripLength(ammoCount);
       delay(25);//time to shoot one ball
       digitalWrite(SOLENOID_POWER_PIN, LOW);
-      delay(700);
+      delay(700);//slows rate of fire to one ball every .7 seconds
     } 
   }
   void updateVoltmeter() {
@@ -75,19 +75,17 @@ void setup() {
   pinMode(LCD_PWM_PIN, OUTPUT);
   pinMode(SOLENOID_POWER_PIN, OUTPUT);
 
-  digitalWrite(LED_POWER_PIN, HIGH);
+  digitalWrite(LED_POWER_PIN, HIGH);//lightning bolt LED
 }
 void loop() {
-  Serial.print("triggered");
-  if (digitalRead(MOTOR_TRIGGER_PIN) == HIGH) {
+  while (digitalRead(MOTOR_TRIGGER_PIN) == HIGH) {
     Serial.print("triggered");
     digitalWrite(SOLENOID_POWER_PIN, HIGH);//enables solenoid
     digitalWrite(MOTOR_POWER_PIN, HIGH);//enables motor
-    if (digitalRead(MAIN_TRIGGER_PIN) == HIGH) {
+    if (digitalRead(MAIN_TRIGGER_PIN) == HIGH) {//main trigger pulled
       zeus.fire();
     }
-  } else {
-      digitalWrite(MOTOR_POWER_PIN, LOW);
   }
+  digitalWrite(MOTOR_POWER_PIN, LOW);//turn motor off
   zeus.updateVoltmeter();
 }

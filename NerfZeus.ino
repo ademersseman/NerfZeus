@@ -4,7 +4,6 @@
 #define NUM_LEDS 16
 #define LED_DATA_PIN 11
 #define LED_POWER_PIN 10
-#define LCD_PWM_PIN 5
 #define MOTOR_TRIGGER_PIN 4
 #define MOTOR_POWER_PIN 6
 #define MAIN_TRIGGER_PIN 13
