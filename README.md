@@ -4,11 +4,8 @@ Included in this repository are my files for a nerf zeus I have painted and wire
 
 ## Implementation
 * CNC cut windows for LCD, LED strip, and the lightning bolt LED
-* Sanded, washed, [primed](https://www.amazon.com/gp/product/B0876DM8L8/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1), [hydrodipped](https://www.amazon.com/gp/product/B07G5HBZHW/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1), then [clear-coated](https://www.amazon.com/gp/product/B006ZLQKQG/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&th=1)
+* Sanded, [primed](https://www.amazon.com/gp/product/B0876DM8L8/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1), [hydrodipped](https://www.youtube.com/watch?v=PM9zkxGlZ6o), then [clear-coated](https://www.amazon.com/gp/product/B006ZLQKQG/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&th=1)
 ## The circuit diagram
-*
-
-
 ![NerfZeus](https://user-images.githubusercontent.com/38081126/170147878-2ea72245-42ce-4946-8af7-eb5291e770c8.jpg)
 
 ## The future
