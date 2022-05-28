@@ -67,7 +67,6 @@ class Blaster {
 Blaster zeus(12);
 
 void setup() {
-  Serial.begin(9600);
   pinMode(MOTOR_POWER_PIN, OUTPUT);
   pinMode(LED_POWER_PIN, OUTPUT);
   pinMode(MOTOR_TRIGGER_PIN, INPUT);
@@ -79,7 +78,6 @@ void setup() {
 }
 void loop() {
   while (digitalRead(MOTOR_TRIGGER_PIN) == HIGH) {
-    Serial.print("triggered");
     digitalWrite(SOLENOID_POWER_PIN, HIGH);//enables solenoid
     digitalWrite(MOTOR_POWER_PIN, HIGH);//enables motor
     if (digitalRead(MAIN_TRIGGER_PIN) == HIGH) {//main trigger pulled
