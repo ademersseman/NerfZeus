@@ -96,7 +96,7 @@ void reload() {
 void shoot() {
   unsigned long start = millis(); 
   while (analogRead(IR_SENSOR_PIN) != 0) {//waiting for IR receiver to detect a shot to passing through the barrel
-    if (millis() - start > 200 && digitalRead(MAIN_TRIGGER_PIN) == LOW) {//will reload, assumed user has ran out of ammo
+    if (millis() - start > 200 && digitalRead(MAIN_TRIGGER_PIN) == LOW) {//will reload, assumed user has ran out of ammo and didn't originally load 12 balls
       ammo = 2;
       break;
     } else if (millis() - start > 2000 && digitalRead(MAIN_TRIGGER_PIN) == HIGH) {//will enter programming mode
@@ -122,7 +122,7 @@ void flashRed(int x) {
     return;
   }
   ledStripOff();
-  delay(100);
+  delay(100);//will be black for 100ms
   for (int i = 0; i < 16; i++) {
     leds[i] = CRGB::Red;
   }
@@ -130,6 +130,7 @@ void flashRed(int x) {
     leds[i].fadeLightBy(200);
   }
   FastLED.show();
+  delay(10);//will be red for 10ms
     
   flashRed(x - 1);
 }
@@ -142,7 +143,7 @@ void ledStripOff() {
   FastLED.show();
 }
 
-//resets LED strip and LCD, calls reload()
+//resets LED strip, LCD, and lightning bolt LED, calls reload()
 void initialize() {
   lcd.clear();
   ledStripOff();
@@ -156,27 +157,27 @@ void initialize() {
   reload();
 }
 
-//loop for user changing motor speed and delay between shots 
+//loop for user changing motor speed and delay between shots exits when user holds button for 4 seconds
 void interpretPress() {
-  unsigned long start = millis();
-  boolean state = true;
+  unsigned long start = millis();//recording of when user presses button
+  boolean state = true;//true when user is changing delay between shots, false when changing motor speed
   while(millis() - start < 4000) {
     start = millis();//reset timer
-    while(digitalRead(MOTOR_TRIGGER_PIN) == HIGH) {
-      if (millis() - start >= 4000) {
+    while(digitalRead(MOTOR_TRIGGER_PIN) == HIGH) {//let clock run while user presses the motor trigger
+      if (millis() - start >= 4000) {//if user holds motor trigger for 4 seconds exit programming mode
         break;
       }
     }
-    if (millis() - start > 1000) {//swap user changes to other values
-      state = !state;
+    if (millis() - start > 1000) {//swap user changes
+      state = !state;//switch state
     } else if (millis() - start > 100) {
       if (state) {//increment shot delay
         if (shotDelay == 1000) {//max shot delay
           lcd.setCursor(6, 1);
-          lcd.print("    ");
+          lcd.print("    ");//wipe screen, otherwise the last zero will not be overwritten when printing 100
           shotDelay = 0;//reset to zero shot delay
         } else {
-          shotDelay += 100;
+          shotDelay += 100;//increments of 100ms
         }
         lcd.setCursor(6, 1);
         lcd.print(shotDelay);//print new value to LCD
@@ -184,7 +185,7 @@ void interpretPress() {
         if (motorFactor == 250) {//max motorFactor
           motorFactor = 100;//reset to minimum motor speed
         } else {
-          motorFactor += 15;
+          motorFactor += 15;//increments byte by 15
         }
         lcd.setCursor(6, 0);
         lcd.print(motorFactor);//print new value to LCD
@@ -193,7 +194,7 @@ void interpretPress() {
   }
 }
 
-//enters the settings page 
+//enters the settings page prints to LCD interface
 void enterSettings() {
   digitalWrite(SOLENOID_POWER_PIN, LOW);//disabling all blaster controls
   analogWrite(MOTOR_POWER_PIN, LOW);
