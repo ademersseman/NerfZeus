@@ -1,5 +1,5 @@
 # NerfZeus
-Included in this repository are my files for a nerf zeus I have wired up to an arduino to increase functionality.
+Included in this repository are my files for a [nerf blaster](https://www.amazon.com/Nerf-Rival-Zeus-MXV-1200-Blaster/dp/B00VX9F5G6?th=1) I have wired up to an [arduino](https://store-usa.arduino.cc/products/arduino-nano/) to increase functionality.
 ## Demonstration
 ## Features
 * [CNC cut](https://www.youtube.com/shorts/z72jtO_NJdo) slits for [LCD](https://www.youtube.com/watch?v=qvk_KqMDpkA), LED strip, and the lightning bolt LED
