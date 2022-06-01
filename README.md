@@ -1,5 +1,5 @@
 # NerfZeus
-Included in this repository are my files for a nerf zeus I have painted and wired up to an arduino to increase functionality.
+Included in this repository are my files for a nerf zeus I have wired up to an arduino to increase functionality.
 ## Demonstration
 ## Features
 * [CNC cut](https://www.youtube.com/shorts/z72jtO_NJdo) slits for [LCD](https://www.youtube.com/watch?v=qvk_KqMDpkA), LED strip, and the lightning bolt LED
