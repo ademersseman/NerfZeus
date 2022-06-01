@@ -4,10 +4,10 @@ Included in this repository are my files for a nerf zeus I have wired up to an a
 ## Features
 * [CNC cut](https://www.youtube.com/shorts/z72jtO_NJdo) slits for [LCD](https://www.youtube.com/watch?v=qvk_KqMDpkA), LED strip, and the lightning bolt LED
 * Sanded, [primed](https://www.amazon.com/gp/product/B0876DM8L8/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1), [hydrodipped](https://www.youtube.com/watch?v=PM9zkxGlZ6o), then [clear-coated](https://www.amazon.com/gp/product/B006ZLQKQG/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&th=1)
-* Mosfets control the solenoid and motor.
-* An infrared led and sensor are places on opposite sides of the barrel to detect passing balls.
+* Mosfets control the [solenoid](https://www.amazon.com/0530-Frame-Solenoid-Electromagnet-Stroke/dp/B07K35L4TH/ref=asc_df_B07K35L4TH/?tag=hyprod-20&linkCode=df0&hvadid=343955653419&hvpos=&hvnetw=g&hvrand=13716584401319201639&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1018095&hvtargid=pla-733922966132&psc=1&tag=&ref=&adgrpid=70729713273&hvpone=&hvptwo=&hvadid=343955653419&hvpos=&hvnetw=g&hvrand=13716584401319201639&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1018095&hvtargid=pla-733922966132) and motor.
+* An [infrared led](https://www.digikey.com/en/products/detail/qt-brightek-qtb/QBLP653-IR3/5299229?s=N4IgTCBcDaII4CMA2AHAbAVgMwFoCSASliALoC%2BQA) and [sensor](https://www.digikey.com/en/products/detail/vishay-semiconductor-opto-division/TSOP18456/8556536?utm_adgroup=Temperature%20Sensors%20-%20NTC%20Thermistors&utm_source=google&utm_medium=cpc&utm_campaign=Shopping_Product_Sensors%2C%20Transducers_NEW&utm_term=&utm_content=Temperature%20Sensors%20-%20NTC%20Thermistors&gclid=Cj0KCQjwnNyUBhCZARIsAI9AYlEBhRqWYb9Gbd37PVzR86RHP54eGQX1h0B9IgQUE2Ub4C6oELgv0usaAl-KEALw_wcB) are places on opposite sides of the barrel to detect passing balls.
 * The LCD screen displays the number of remaining ammo and the voltage of the battery.
-* An LED strip of sixteen leds displays the remaining ammo at a quick glance.
+* An [LED strip](https://a.co/d/eVlWRH4) of sixteen leds displays the remaining ammo at a quick glance.
 ## The circuit diagram
 ![NerfZeus](https://user-images.githubusercontent.com/38081126/170147878-2ea72245-42ce-4946-8af7-eb5291e770c8.jpg)
 Created with [Scheme-it](https://www.digikey.com/schemeit/project/)
