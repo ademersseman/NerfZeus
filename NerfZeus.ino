@@ -14,7 +14,7 @@ LiquidCrystal lcd(8, 7, 9, 3, 2, 1);
 
 byte motorFactor = 250;//motor speed value
 byte ammo;//ammo variable
-unsigned int shotDelay = 500;//delay between shots in milliseconds
+int shotDelay = 500;//delay between shots in milliseconds
 
 CRGB leds[NUM_LEDS];
 
@@ -94,21 +94,18 @@ void reload() {
 
 //interprets a trigger pull
 void shoot() {
-  unsigned int timer = 0; 
-  noInterrupts();//dissables interrupts
+  unsigned long start = millis(); 
   while (analogRead(IR_SENSOR_PIN) != 0) {//waiting for IR receiver to detect a shot to passing through the barrel
-    timer++;//include speed of update here
-    if (timer > 2000 && digitalRead(MAIN_TRIGGER_PIN) == LOW) {//will reload, assumed user has ran out of ammo
+    if (millis() - start > 200 && digitalRead(MAIN_TRIGGER_PIN) == LOW) {//will reload, assumed user has ran out of ammo
       ammo = 2;
       break;
-    } else if (timer > 40000 && digitalRead(MAIN_TRIGGER_PIN) == HIGH) {//will enter programming mode
+    } else if (millis() - start > 2000 && digitalRead(MAIN_TRIGGER_PIN) == HIGH) {//will enter programming mode
       ammo = 2;
       enterSettings();
       break;
     }
   }
   digitalWrite(SOLENOID_POWER_PIN, LOW);//disables power to the solenoid
-  interrupts();//enables interrupts
 
   ammo -= 2;//subtracts two from ammo total, IR sensor is too slow and will allow two balls beforing tripping
   if (ammo <= 0) {
@@ -161,18 +158,18 @@ void initialize() {
 
 //loop for user changing motor speed and delay between shots 
 void interpretPress() {
-  unsigned int timer = 0;
+  unsigned long start = millis();
   boolean state = true;
-  while(timer < 4000) {
+  while(millis() - start < 4000) {
+    start = millis();//reset timer
     while(digitalRead(MOTOR_TRIGGER_PIN) == HIGH) {
-      if (timer < 65535) {//unsigned int max value
-        timer++;
+      if (millis() - start >= 4000) {
+        break;
       }
-      delay(1);
     }
-    if (timer > 1000) {//swap user changes to other values
+    if (millis() - start > 1000) {//swap user changes to other values
       state = !state;
-    } else if (timer > 100) {
+    } else if (millis() - start > 100) {
       if (state) {//increment shot delay
         if (shotDelay == 1000) {//max shot delay
           lcd.setCursor(6, 1);
@@ -193,11 +190,10 @@ void interpretPress() {
         lcd.print(motorFactor);//print new value to LCD
       }
     }
-    timer = 0;//reset timer
   }
 }
 
-//initializes
+//enters the settings page 
 void enterSettings() {
   digitalWrite(SOLENOID_POWER_PIN, LOW);//disabling all blaster controls
   analogWrite(MOTOR_POWER_PIN, LOW);
