@@ -9,7 +9,10 @@ Included in this repository are my files for a [Nerf blaster](https://www.amazon
 * An [infrared led](https://www.digikey.com/en/products/detail/qt-brightek-qtb/QBLP653-IR3/5299229?s=N4IgTCBcDaII4CMA2AHAbAVgMwFoCSASliALoC%2BQA) and [sensor](https://www.digikey.com/en/products/detail/vishay-semiconductor-opto-division/TSOP18456/8556536?utm_adgroup=Temperature%20Sensors%20-%20NTC%20Thermistors&utm_source=google&utm_medium=cpc&utm_campaign=Shopping_Product_Sensors%2C%20Transducers_NEW&utm_term=&utm_content=Temperature%20Sensors%20-%20NTC%20Thermistors&gclid=Cj0KCQjwnNyUBhCZARIsAI9AYlEBhRqWYb9Gbd37PVzR86RHP54eGQX1h0B9IgQUE2Ub4C6oELgv0usaAl-KEALw_wcB) are places on opposite sides of the barrel to detect passing balls.
 * The LCD screen displays the number of remaining ammo and the voltage of the battery.
 * An [LED strip](https://www.amazon.com/dp/B08ZHCQS8P/ref=cm_sw_r_api_i_QF52V4BFF7XM3XWEKZ2G?_encoding=UTF8&psc=1) of sixteen leds displays the remaining ammo at a quick glance.
-## The circuit diagram
+* Wire connectors were used so you can detach both sides of the blaster from each other and work on them independently.
+## An Inside Look
+![IMG_1292](https://user-images.githubusercontent.com/38081126/171744862-f3e241a3-c5aa-4f69-950c-b522cd44957e.jpg)
+## The Circuit Diagram
 ![NerfZeus](https://user-images.githubusercontent.com/38081126/170147878-2ea72245-42ce-4946-8af7-eb5291e770c8.jpg)
 Created with [Scheme-it](https://www.digikey.com/schemeit/project/)
 ## The future
