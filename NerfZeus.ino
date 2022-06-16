@@ -28,6 +28,7 @@ void setup() {
   FastLED.setBrightness(30);
   FastLED.addLeds<NEOPIXEL, LED_DATA_PIN>(leds, NUM_LEDS);
   initialize();
+  reload();
 }
 
 
@@ -154,7 +155,6 @@ void initialize() {
   lcd.setCursor(15, 1);
   lcd.print("V");
   leds[0] = CRGB::Blue;
-  reload();
 }
 
 //loop for user changing motor speed and delay between shots exits when user holds button for 4 seconds
