@@ -1,7 +1,7 @@
 # NerfZeus
 Included in this repository are my files for a [Nerf blaster](https://www.amazon.com/Nerf-Rival-Zeus-MXV-1200-Blaster/dp/B00VX9F5G6?th=1) I have wired up to an [Arduino](https://store-usa.arduino.cc/products/arduino-nano/) to increase functionality.
 ## Demonstration
-[![Demo](https://i.ytimg.com/an_webp/XO_tAWx22Ko/mqdefault_6s.webp?du=3000&sqp=CNiX_pQG&rs=AOn4CLAQA97Ns1yjOhDexaoklIAAUpg8sg)](https://www.youtube.com/watch?v=XO_tAWx22Ko)
+[![Demo Youtube Video](https://i.ytimg.com/an_webp/XO_tAWx22Ko/mqdefault_6s.webp?du=3000&sqp=CNiX_pQG&rs=AOn4CLAQA97Ns1yjOhDexaoklIAAUpg8sg)](https://www.youtube.com/watch?v=XO_tAWx22Ko)
 ## Features
 * [CNC cut](https://www.youtube.com/shorts/z72jtO_NJdo) slits for [LCD](https://www.youtube.com/watch?v=qvk_KqMDpkA), LED strip, and the lightning bolt LED
 * Sanded, [primed](https://www.amazon.com/gp/product/B0876DM8L8/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1), [hydrodipped](https://www.youtube.com/watch?v=PM9zkxGlZ6o), then [clear-coated](https://www.amazon.com/gp/product/B006ZLQKQG/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&th=1)
