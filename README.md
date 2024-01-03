@@ -15,5 +15,3 @@ Included in this repository are my files for a [Nerf blaster](https://www.amazon
 ## The Circuit Diagram
 ![NerfZeus](https://user-images.githubusercontent.com/38081126/204065238-d8e3e0cc-a476-4bd4-b194-73e361c17eeb.png)
 Created with [Scheme-it](https://www.digikey.com/schemeit/project/)
-## The future
-Also included are the [files](https://github.com/ademersseman/NerfZeus/tree/main/NerfZeusOOP) for an object oriented approach to this problem. Unfortunately, the object oriented approach is unfinished and will be revisited at a later date as the LCD screen looks like this(photo below) under the current implementation. This is a software issue I will crack once I am more familiar with C++ and the LiquidCrystal library. ![IMG_1272](https://user-images.githubusercontent.com/38081126/169588125-8101f675-aefb-4f70-af85-870e87a8a555.jpg)
