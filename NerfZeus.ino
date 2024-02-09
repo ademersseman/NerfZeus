@@ -50,10 +50,10 @@ void loop() {
 
 //updates voltmeter and displays to LCD
 void updateVoltmeter() {
-  float input_voltage = (analogRead(VOLTMETER_PIN) * 5.0) / 1024.0;//converts the analog read output into a ratio out of 5V(analogRead(VOLTMETER_PIN) = 1024 when 5V)
-  input_voltage = input_voltage / (51.0 / 151.0);//voltage divider calculation max ~ 15V
+  float inputVoltage = (analogRead(VOLTMETER_PIN) * 5.0) / 1024.0;//converts the analog read output into a ratio out of 5V(analogRead(VOLTMETER_PIN) = 1024 when 5V)
+  float realVoltage = inputVoltage / (51.0 / 151.0);//voltage divider calculation max ~ 15V
   lcd.setCursor(11, 1);
-  lcd.print(input_voltage);
+  lcd.print(realVoltage);
 }
 
 //writes ammo variable value to LCD display
@@ -92,21 +92,21 @@ void reload() {
 
 //interprets a main trigger pull
 void shoot() {
+  ammo -= 2;//subtracts two from ammo total, IR sensor is too slow and will allow two balls beforing tripping
   unsigned long start = millis(); 
   while (analogRead(IR_SENSOR_PIN) != 0) {//while IR sensor detects no ball fired
     if (millis() - start > 200 && digitalRead(MAIN_TRIGGER_PIN) == LOW) {//if no balls are fired withing 200ms and the user releases the main trigger
-      ammo = 2;
+      ammo = 0;
       break;
     } else if (millis() - start > 2000 && digitalRead(MAIN_TRIGGER_PIN) == HIGH) {//if the user pulls the trigger down on empty magazine for 2000ms = 2s
-      ammo = 2;
+      ammo = 0;
       enterSettings();
       break;
     }
   }
   digitalWrite(SOLENOID_POWER_PIN, LOW);//disables power to the solenoid
 
-  ammo -= 2;//subtracts two from ammo total, IR sensor is too slow and will allow two balls beforing tripping
-  if (ammo <= 0) {
+  if (ammo == 0) {
     reload();
   } else {
     updateAmmoCounter();
@@ -170,12 +170,12 @@ void enterSettings() {
   lcd.setCursor(6, 1);
   lcd.print(shotDelay);
 
-//loop for user changing motor speed and delay between shots exits when user holds button for 4 seconds
+  //loop for user changing motor speed and delay between shots exits when user holds button for 4 seconds
   unsigned long start = millis();//recording of when user presses button
   boolean state = true;//true when user is changing delay between shots, false when changing motor speed
   while(millis() - start < 4000) {
     start = millis();//reset timer
-    while(digitalRead(MOTOR_TRIGGER_PIN) == HIGH) {//let clock run while user presses the motor trigger
+    while(digitalRead(MOTOR_TRIGGER_PIN) == HIGH && millis() - start < 4000) {//let clock run while user presses the motor trigger
       delay(1);
     }
     if (millis() - start > 1000) {//swap user changes
